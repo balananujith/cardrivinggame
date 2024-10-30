@@ -115,11 +115,14 @@ function moveEnemy(myCar) {
     }
     if (enemyCar.y >= 750) {
       enemyCar.y = -300;
-      // Keep enemy car within game area boundaries
-      enemyCar.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + "px";
+
+      // Set left position to a value within game area boundaries
+      const maxLeftPosition = gameArea.offsetWidth - enemyCar.offsetWidth;
+      enemyCar.style.left = Math.floor(Math.random() * maxLeftPosition) + "px";
     }
     enemyCar.y += player.speed;
     enemyCar.style.top = enemyCar.y + "px";
+
     if (
       myCar.offsetTop < enemyCar.offsetTop &&
       enemyCar.offsetTop < myCar.offsetTop + player.speed
@@ -128,6 +131,7 @@ function moveEnemy(myCar) {
     }
   });
 }
+
 
 function runGame() {
   if (player.isPaused) return;
