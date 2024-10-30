@@ -44,7 +44,7 @@
   height: 100px;
   background: white;
   position: absolute;
-  margin-left: 195px;
+  margin-left: calc(50% - 5px); /* Center the lane lines */
 }
 
 .gameArea {
