@@ -134,6 +134,10 @@ function runGame() {
   if (player.start) {
     moveLines();
     moveEnemy(car);
+    
+    // Increase score over time
+    player.score += Math.floor(player.speed / 2); // Adjust scoring logic as needed
+
     if (keys.ArrowUp && player.y > road.top + 150) {
       player.y -= player.speed;
     }
@@ -151,7 +155,7 @@ function runGame() {
     car.style.left = player.x + "px";
     window.requestAnimationFrame(runGame);
 
-    currentScoreElement.innerText = player.score;
+    currentScoreElement.innerText = player.score; // Update score display
     currentSpeedElement.innerText = Math.floor(player.speed * speedMultiplier) + " km/h";
   }
 }
@@ -161,7 +165,7 @@ function initializeGame() {
   gameArea.innerHTML = "";
   player.start = true;
   player.speed = 1; // Start speed at 1 for smooth acceleration
-  player.score = 0;
+  player.score = 0; // Reset score
   player.isPaused = false;
 
   window.requestAnimationFrame(runGame);
@@ -197,5 +201,5 @@ function initializeGame() {
 }
 
 function increaseSpeed() {
-  player.speed += 1;
+  player.speed += 1; // Increase speed every 5 seconds
 }
