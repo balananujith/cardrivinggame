@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Racing Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fury Game</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="carGame">
-        <div class="gameArea">
-            <div class="score">
-                <div>Score: <span id="score">0</span></div>
-                <div>Speed: <span id="speed">0</span> km/h</div>
-                <div>High Score: <span id="highScore">0</span></div>
-            </div>
-            <div class="myCar"></div>
-            <div class="enemyCar"></div>
-            <div class="lines"></div>
-            <div class="lines"></div>
-            <div class="lines"></div>
-        </div>
-        <div class="startScreen" onclick="startGame()">
-            Tap to Start
-        </div>
-        <div class="touchControls">
-            <div class="controlGroup">
-                <button class="controlBtn" onclick="moveLeft()">←</button>
-                <button class="controlBtn" onclick="moveRight()">→</button>
-            </div>
-            <div class="controlGroup">
-                <button class="controlBtn" onclick="accelerate()">↑</button>
-                <button class="controlBtn" onclick="decelerate()">↓</button>
-            </div>
-        </div>
+  <div class="carGame">
+    <div class="score">
+      <div>Score: <span id="currentScore">0</span></div>
+      <div>Speed: <span id="currentSpeed">0</span></div>
+      <div>High Score: <span id="highScore">0</span></div>
     </div>
-
-    <script src="script.js"></script>
+    <div class="startScreen">
+      <p>
+        Press here to start <br />
+        Arrow keys to move <br />
+        Press Escape to pause/resume <br />
+        If you hit another car, you will lose.
+      </p>
+    </div>
+    <div class="gameArea"></div>
+    <!-- Touch Controls for Mobile -->
+    <div class="touchControls">
+      <div class="controlGroup">
+        <button id="up" class="controlBtn">▲</button>
+        <div>
+          <button id="left" class="controlBtn">◄</button>
+          <button id="right" class="controlBtn">►</button>
+        </div>
+        <button id="down" class="controlBtn">▼</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

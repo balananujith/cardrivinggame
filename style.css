@@ -52,19 +52,19 @@
 .gameArea {
   width: 90%;
   max-width: 400px; /* Desktop width */
-  height: calc(100vh - 80px); /* Reduced height to accommodate score box */
+  height: calc(100vh - 100px); /* Allow for score box height */
   background: #2d3436;
   margin: auto;
   position: relative;
   overflow: hidden;
   border-right: 7px dashed #c8d6e5;
   border-left: 7px dashed #c8d6e5;
-  top: 80px; /* Move down to make space for score box */
+  bottom: 0; /* Keep the game area touching the bottom */
 }
 
 .score {
   position: absolute;
-  top: 15px; /* Keep the score at the top of the road */
+  top: 20px; /* Adjust to place the score box inside the road */
   left: 50%;
   transform: translateX(-50%);
   background: #10ac84;
@@ -136,22 +136,19 @@
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
+  .gameArea {
+    height: calc(100vh - 70px); /* Adjust height for mobile */
+  }
+
   .score {
-    font-size: 1rem;
-    line-height: 50px;
-    width: 80%;
+    top: 10px; /* Position score closer to the top for mobile */
+    line-height: 50px; /* Adjust line height for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
   }
 
   .startScreen {
     font-size: 16px;
     line-height: 25px;
-  }
-
-  .gameArea {
-    width: 90%;
-    max-width: 90%; /* Reduce the width for mobile */
-    height: calc(100vh - 60px); /* Adjust height for mobile */
-    top: 60px; /* Move down to make space for score box */
   }
 
   .controlBtn {
