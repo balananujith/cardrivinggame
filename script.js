@@ -4,8 +4,8 @@ const highScoreElement = document.getElementById("highScore");
 const startScreen = document.querySelector(".startScreen");
 const gameArea = document.querySelector(".gameArea");
 
-let player = { speed: 0, score: 0, isPaused: false, start: false };
-let highScore = localStorage.getItem("highScore") || 0;
+let player = { speed: 0, score: 0, isPaused: false, start: false, x: 0, y: 0 }; // Added x and y properties
+let highScore = localStorage.getItem("highScore") ? parseInt(localStorage.getItem("highScore")) : 0; // Parse to int
 let speedTimer = 0;
 const speedMultiplier = 15; // Adjust multiplier for realistic km/h display
 let keys = {
@@ -94,9 +94,10 @@ function moveLines() {
 function endGame() {
   player.start = false;
   clearInterval(speedTimer);
-
-  if (player.score > highScore) {
-    highScore = player.score;
+  
+  // Display final score and check for high score
+  if (player.score >= highScore) {
+    highScore = player.score; // Set new high score
     localStorage.setItem("highScore", highScore);
     startScreen.innerHTML = `Congratulations! New High Score: ${highScore}<br>Press here to play again.`;
   } else {
@@ -104,7 +105,7 @@ function endGame() {
   }
 
   startScreen.classList.remove("hide");
-  highScoreElement.innerText = highScore;
+  highScoreElement.innerText = highScore; // Update high score display
 }
 
 function moveEnemy(myCar) {
@@ -136,7 +137,7 @@ function runGame() {
     moveEnemy(car);
     
     // Increase score over time
-    player.score += Math.floor(player.speed / 2); // Adjust scoring logic as needed
+    player.score += 1; // Adjust scoring logic as needed
 
     // Debugging: Log the player's score
     console.log("Score: ", player.score); 

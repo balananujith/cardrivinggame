@@ -50,7 +50,7 @@
 .gameArea {
   width: 90%;
   max-width: 400px;
-  height: 100vh;
+  height: 100vh; /* Keep the height full for desktop */
   background: #2d3436;
   margin: auto;
   position: relative;
@@ -100,12 +100,18 @@
 /* Touch Controls for Mobile */
 .touchControls {
   position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
+  bottom: 20px; /* Keep this at a fixed distance from the bottom */
+  left: 50%; /* Center the controls horizontally */
+  transform: translateX(-50%); /* Adjust the transform to center */
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: center; /* Center buttons vertically */
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .controlBtn {
@@ -121,9 +127,8 @@
   border-radius: 5px;
 }
 
-.touchControls > div {
+.controlGroup > div {
   display: flex;
-  justify-content: center;
 }
 
 /* Responsive Adjustments */
@@ -139,14 +144,31 @@
     line-height: 25px;
   }
 
+  .gameArea {
+    width: 90%;
+    max-width: 90%; /* Reduce the width for mobile */
+    height: 70vh; /* Reduce the height for mobile */
+  }
+
   .controlBtn {
     width: 50px;
     height: 50px;
     font-size: 20px;
   }
-  
-  .gameArea {
-    max-width: 100%;
-    width: 90%;
+
+  /* Reducing height of the road for mobile */
+  .lines {
+    height: 70px; /* Shorter lane lines for mobile */
+  }
+
+  /* Adjusting car sizes for mobile if needed */
+  .myCar {
+    width: 40px; /* Adjust size of the player car */
+    height: 70px; /* Adjust size of the player car */
+  }
+
+  .enemyCar {
+    width: 40px; /* Adjust size of the enemy car */
+    height: 70px; /* Adjust size of the enemy car */
   }
 }
