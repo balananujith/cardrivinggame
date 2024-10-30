@@ -138,6 +138,9 @@ function runGame() {
     // Increase score over time
     player.score += Math.floor(player.speed / 2); // Adjust scoring logic as needed
 
+    // Debugging: Log the player's score
+    console.log("Score: ", player.score); 
+
     if (keys.ArrowUp && player.y > road.top + 150) {
       player.y -= player.speed;
     }
