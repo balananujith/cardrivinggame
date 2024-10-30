@@ -115,7 +115,8 @@ function moveEnemy(myCar) {
     }
     if (enemyCar.y >= 750) {
       enemyCar.y = -300;
-      enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
+      // Keep enemy car within game area boundaries
+      enemyCar.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + "px";
     }
     enemyCar.y += player.speed;
     enemyCar.style.top = enemyCar.y + "px";
