@@ -122,16 +122,8 @@ function moveEnemy(myCar) {
     }
     enemyCar.y += player.speed;
     enemyCar.style.top = enemyCar.y + "px";
-
-    if (
-      myCar.offsetTop < enemyCar.offsetTop &&
-      enemyCar.offsetTop < myCar.offsetTop + player.speed
-    ) {
-      player.score += 10;
-    }
   });
 }
-
 
 function runGame() {
   if (player.isPaused) return;
@@ -151,7 +143,7 @@ function runGame() {
     if (keys.ArrowLeft && player.x > 0) {
       player.x -= player.speed;
     }
-    if (keys.ArrowRight && player.x < road.width - 50) {
+    if (keys.ArrowRight && player.x < road.width - car.offsetWidth) { // Ensure car doesn't cross right boundary
       player.x += player.speed;
     }
 
@@ -194,7 +186,10 @@ function initializeGame() {
     enemyCar.setAttribute("class", "enemyCar");
     enemyCar.y = (x + 1) * 350 * -1;
     enemyCar.style.top = enemyCar.y + "px";
-    enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
+    
+    // Set left position to a random value within game area boundaries
+    const maxLeftPosition = gameArea.offsetWidth - enemyCar.offsetWidth;
+    enemyCar.style.left = Math.floor(Math.random() * maxLeftPosition) + "px";
     gameArea.appendChild(enemyCar);
   }
 
