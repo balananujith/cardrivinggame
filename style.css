@@ -21,19 +21,21 @@
 }
 
 .myCar {
-  width: 50px;
-  height: 90px;
+  width: 50px; /* Base size for desktop */
+  height: 90px; /* Base size for desktop */
   position: absolute;
-  bottom: 120px;
+  bottom: 120px; /* Position above the bottom */
+  left: calc(50% - 25px); /* Center the car horizontally */
   background-image: url("./image/carY.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .enemyCar {
-  width: 50px;
-  height: 90px;
+  width: 50px; /* Base size for desktop */
+  height: 90px; /* Base size for desktop */
   position: absolute;
+  left: calc(50% - 25px); /* Center the enemy car horizontally */
   background-image: url("./image/car3.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,7 +43,7 @@
 
 .lines {
   width: 10px;
-  height: 100px;
+  height: 100px; /* Base size for desktop */
   background: white;
   position: absolute;
   margin-left: calc(50% - 5px); /* Center the lane lines */
@@ -49,7 +51,7 @@
 
 .gameArea {
   width: 90%;
-  max-width: 400px;
+  max-width: 400px; /* Desktop width */
   height: 100vh; /* Keep the height full for desktop */
   background: #2d3436;
   margin: auto;
@@ -161,14 +163,16 @@
     height: 70px; /* Shorter lane lines for mobile */
   }
 
-  /* Adjusting car sizes for mobile if needed */
+  /* Adjusting car sizes for mobile */
   .myCar {
     width: 40px; /* Adjust size of the player car */
     height: 70px; /* Adjust size of the player car */
+    left: calc(50% - 20px); /* Center the car in the reduced road */
   }
 
   .enemyCar {
     width: 40px; /* Adjust size of the enemy car */
     height: 70px; /* Adjust size of the enemy car */
+    left: calc(50% - 20px); /* Center the enemy car in the reduced road */
   }
 }
